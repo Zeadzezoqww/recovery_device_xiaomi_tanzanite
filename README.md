@@ -1,3 +1,7 @@
+> [!WARNING]
+> Rebase, Force Push, and Low Quality / Lazy Commit Messages. you've been warned.
+
+
 TWRP Recovery Tree for Xiaomi Redmi Note 14 4G (Tanzanite)
 ===========================================
 
