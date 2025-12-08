@@ -1,50 +1,60 @@
-## ADVAN X1 (_6781_)
-## Recovery device tree (TWRP, PBRP, OrangeFox, SHRP)
+TWRP Recovery Tree for Xiaomi Redmi Note 14 4G (Tanzanite)
+===========================================
+
+The Xiaomi Redmi Note 14 4G is a budget range smartphone from Xiaomi, announced in January 2025.
 
 ## Device specifications
 
-Device                  | ADVAN X1
------------------------:|:-----------------------------------------
-SoC                     | Mediatek Helio G100 Ultimate (6 nm)
-CPU                     | Octa-core (2x2.2 GHz Cortex-A76 & 6x2.0 GHz Cortex-A55)
-GPU                     | Mali-G57 MC2
-Memory                  | 8 GB RAM
-Storage                 | 128 GB (UFS 2.2)
-MicroSD                 | microSDXC (dedicated slot)
-Shipped Android Version | 14.0
-Battery                 | Non-removable 5000 mAh
-Display                 | 1080 x 2460 pixels (~396 ppi density), 6.78 inches, 120hz
-Camera                  | 64 MP Sony-IMX782; 5 MP (front)
+Basic   | Spec Sheet
+-------:|:-------------------------
+OS	| Android 14, HyperOS
+CPU     | Octa-core (2x2.2 GHz Cortex-A76 & 6x2.0 GHz Cortex-A55)
+Chipset | Mediatek Helio G99 Ultra (6 nm)
+GPU     | Mali-G57 MC2
+Memory  | 6GB/8GB RAM
+Storage | 128GB/128GB/256GB	UFS 2.2
+MicroSD | microSDXC (uses shared SIM slot)
+Display | AMOLED, 120Hz, 1200 nits (HBM), 1800 nits (peak)
+Battery | 5500 mAh
+Resolution | 1080 x 2400 pixels, 20:9 ratio (~395 ppi density)
+Camera (Rear)  | 108 MP, f/1.7, (wide), 1/1.67", 0.64µm, PDAF, 2 MP, f/2.4, (macro),2 MP, f/2.4, (depth)
+Rear Camera Features | LED flash, HDR, panorama
+Video	| 1080p@30/60fps
+Camera (Front)  | 20 MP, f/2.2, (wide), 1/4.0", 0.7µm
+Video | 1080p@30fps
+Features| Fingerprint (under display, optical), accelerometer, gyro, compass, proximity
 
 ## Device picture
 
-![ ADVAN X1 ](https://i0.wp.com/advandigital.com/wp-content/uploads/2025/07/Background.png?w=752&ssl=1 "ADVAN X1")
-
+![Xiaomi Redmi Note 14 4G](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjd6l2KiVCJLjRoZI9JKGk31R8dDTKL80_ycP1tkACyUhCGqZ7I-XJag3p&s=10 "Xiaomi Redmi Note 14 4G")
 ## Features
 
-Works:
+Works (WIP):
 
-- [X] ADB
-- [X] Decryption
-- [X] Display
-- [X] Fasbootd
-- [X] Flashing
-- [X] MTP
-- [X] Sideload
-- [x] USB OTG
-- [x] Vibrator
+- [ ] ADB
+- [ ] Decryption
+- [ ] Display
+- [ ] Fasbootd
+- [ ] Flashing
+- [ ] MTP
+- [ ] Sideload
+- [ ] USB OTG
+- [ ] SD Card
+- [ ] Touch
+- [ ] Flashlight
+- [ ] Vibrator
 
 ## Building
 ### TWRP, PBRP
 _Lunch_ command :
 
 ```
-lunch twrp_ADVAN_X1-eng && mka vendorbootimage
+lunch twrp_tanzanite-eng && mka vendorbootimage
 ```
 
 ### SHRP, OrangeFox
 _Lunch_ command :
 
 ```
-lunch twrp_ADVAN_X1-eng && mka adbd vendorbootimage
+lunch twrp_tanzanite-eng && mka adbd vendorbootimage
 ```

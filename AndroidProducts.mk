@@ -5,7 +5,7 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/twrp_ADVAN_X1.mk
+    $(LOCAL_DIR)/twrp_tanzanite.mk
 
 COMMON_LUNCH_CHOICES := \
-    twrp_ADVAN_X1-eng
+    twrp_tanzanite-eng

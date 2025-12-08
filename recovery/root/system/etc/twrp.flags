@@ -26,8 +26,7 @@
 /protect_s		ext4		/dev/block/by-name/protect2										flags=display=protect_s;backup
 /nvram			emmc		/dev/block/by-name/nvram										flags=display=nvram;backup
 
-# Standard MediaTeks's partitions
-/flashinfo		emmc		/dev/block/by-name/flashinfo									flags=display="SP Flash Tool Log";backup;flashimg
+# Standard MediaTeks's partitions							flags=display="SP Flash Tool Log";backup;flashimg
 /expdb			emmc		/dev/block/by-name/expdb										flags=display="MTK Crash Log";backup;flashimg
 /logo			emmc		/dev/block/by-name/logo											flags=display="Boot Logo";backup;flashimg
 /otp			emmc		/dev/block/by-name/otp											flags=display=otp

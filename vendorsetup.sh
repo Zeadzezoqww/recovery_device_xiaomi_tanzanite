@@ -19,7 +19,7 @@
 #
 
 #set -o xtrace
-FDEVICE="ADVAN_X1"
+FDEVICE="tanzanite"
 
 # Clone to fix build on minimal manifest
 git clone https://android.googlesource.com/platform/external/gflags/ -b android-12.1.0_r4 external/gflags
@@ -79,7 +79,7 @@ export OF_USE_LZ4_COMPRESSION=1
 export OF_ENABLE_ALL_PARTITION_TOOLS=1
 
 # variant
-export OF_MAINTAINER="Guzram"
+export OF_MAINTAINER="nx"
 
 # no flashlight
 export OF_FLASHLIGHT_ENABLE=0
