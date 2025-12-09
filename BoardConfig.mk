@@ -173,7 +173,3 @@ TARGET_OTA_ASSERT_DEVICE := tanzanite
 # Init
 TARGET_INIT_VENDOR_LIB := libinit_tanzanite
 TARGET_RECOVERY_DEVICE_MODULES := libinit_tanzanite
-
-# Haptic
-TW_SUPPORT_INPUT_AIDL_HAPTICS := true
-TW_SUPPORT_INPUT_AIDL_HAPTICS_FQNAME := "IVibrator/default"
