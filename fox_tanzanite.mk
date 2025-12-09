@@ -65,3 +65,7 @@ OF_USE_LZ4_COMPRESSION := 1
 
 # Keymaster
 OF_DEFAULT_KEYMASTER_VERSION := 4.1
+
+# Set this to 1 to remove toggleable option: "Reflash OrangeFox after flashing a ROM"
+# Implemented forced method using /system/bin/pre_rom_flash.sh and .../post_rom_flash.sh
+OF_NO_REFLASH_CURRENT_ORANGEFOX := 1
