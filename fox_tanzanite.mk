@@ -18,30 +18,31 @@
 # 	Please maintain this if you use this script or any part of it
 #
 
-# maintainer
-OF_MAINTAINER := nx
-
-# screen settings
-OF_SCREEN_H := 2400
-OF_STATUS_H := 87
-OF_HIDE_NOTCH := 1
-OF_STATUS_INDENT_LEFT := 85
-OF_STATUS_INDENT_RIGHT := 85
-OF_CLOCK_POS := 1
-OF_ALLOW_DISABLE_NAVBAR := 0
-
-# other stuff
-OF_QUICK_BACKUP_LIST := /boot;/data;
-OF_NO_TREBLE_COMPATIBILITY_CHECK := 1
-OF_DYNAMIC_FULL_SIZE := 9126805504
+# OrangeFox settings
+OF_DEFAULT_KEYMASTER_VERSION := 4.1
+OF_FLASHLIGHT_ENABLE := 1
 OF_NO_REFLASH_CURRENT_ORANGEFOX := 1
-OF_ENABLE_ALL_PARTITION_TOOLS := 1
-OF_USE_GREEN_LED := 0
-OF_FLASHLIGHT_ENABLE := 0
+OF_NO_SPLASH_CHANGE := 1
 OF_FORCE_CASEFOLDING := 1
 
-# number of list options before scrollbar creation
-OF_OPTIONS_LIST_NUM := 9
+# OrangeFox GUI settings
+OF_SCREEN_H := 2400
+OF_STATUS_H := 95
+OF_STATUS_INDENT_LEFT := 48
+OF_STATUS_INDENT_RIGHT := 48
+OF_ALLOW_DISABLE_NAVBAR := 0
+OF_CLOCK_POS := 1
+
+# Recovery additional features
+OF_LOOP_DEVICE_ERRORS_TO_LOG := 1
+OF_ENABLE_LPTOOLS := 1
+OF_USE_LZ4_COMPRESSION := true
+OF_DISPLAY_FORMAT_FILESYSTEMS_DEBUG_INFO := 1
+
+# OTA
+OF_DISABLE_OTA_MENU := 1
+OF_NO_TREBLE_COMPATIBILITY_CHECK := 1
+OF_SUPPORT_VBMETA_AVB2_PATCHING := 1
 
 # ----- data format stuff -----
 # ensure that /sdcard is bind-unmounted before f2fs data repair or format
@@ -60,12 +61,3 @@ OF_BIND_MOUNT_SDCARD_ON_FORMAT := 1
 # don't spam the console with loop errors
 OF_LOOP_DEVICE_ERRORS_TO_LOG := 1
 
-# lz4 compression
-OF_USE_LZ4_COMPRESSION := 1
-
-# Keymaster
-OF_DEFAULT_KEYMASTER_VERSION := 4.1
-
-# Set this to 1 to remove toggleable option: "Reflash OrangeFox after flashing a ROM"
-# Implemented forced method using /system/bin/pre_rom_flash.sh and .../post_rom_flash.sh
-OF_NO_REFLASH_CURRENT_ORANGEFOX := 1

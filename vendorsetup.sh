@@ -22,11 +22,13 @@
 export LC_ALL="C.UTF-8"
 export FOX_VARIANT="A12+_AOSP"
 export FOX_MAINTAINER_PATCH_VERSION=$(date +"%Y%m%d")
+export FOX_AB_DEVICE=1
 export FOX_VIRTUAL_AB_DEVICE=1
 export FOX_ENABLE_APP_MANAGER=1
-export FOX_RECOVERY_VENDOR_BOOT_PARTITION="/dev/block/by-name/vendor_boot"
 export FOX_RECOVERY_SYSTEM_PARTITION="/dev/block/mapper/system"
 export FOX_RECOVERY_VENDOR_PARTITION="/dev/block/mapper/vendor"
+export FOX_RECOVERY_VENDOR_BOOT_PARTITION="/dev/block/by-name/vendor_boot"
+export FOX_VENDOR_BOOT_RECOVERY_FULL_REFLASH=1
 export FOX_VENDOR_BOOT_RECOVERY=1
 export FOX_USE_XZ_UTILS=1
 export FOX_USE_UPDATED_MAGISKBOOT=1
