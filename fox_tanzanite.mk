@@ -42,7 +42,6 @@ OF_DISPLAY_FORMAT_FILESYSTEMS_DEBUG_INFO := 1
 # OTA
 OF_DISABLE_OTA_MENU := 1
 OF_NO_TREBLE_COMPATIBILITY_CHECK := 1
-OF_SUPPORT_VBMETA_AVB2_PATCHING := 1
 
 # ----- data format stuff -----
 # ensure that /sdcard is bind-unmounted before f2fs data repair or format
@@ -60,4 +59,3 @@ OF_BIND_MOUNT_SDCARD_ON_FORMAT := 1
 
 # don't spam the console with loop errors
 OF_LOOP_DEVICE_ERRORS_TO_LOG := 1
-
