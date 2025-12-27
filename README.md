@@ -33,18 +33,18 @@ Features| Fingerprint (under display, optical), accelerometer, gyro, compass, pr
 ![Xiaomi Redmi Note 14 4G](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjd6l2KiVCJLjRoZI9JKGk31R8dDTKL80_ycP1tkACyUhCGqZ7I-XJag3p&s=10 "Xiaomi Redmi Note 14 4G")
 ## Features
 
-Works (WIP):
+Works:
 
-- [ ] ADB
-- [ ] Decryption
-- [ ] Display
-- [ ] Fasbootd
-- [ ] Flashing
-- [ ] MTP
-- [ ] Sideload
-- [ ] USB OTG
-- [ ] SD Card
-- [ ] Touch
+- [X] ADB
+- [X] Decryption
+- [X] Display
+- [X] Fasbootd
+- [X] Flashing
+- [X] MTP
+- [X] Sideload
+- [X] USB OTG
+- [X] SD Card
+- [X] Touch
 - [ ] Flashlight
 - [ ] Vibrator
 
