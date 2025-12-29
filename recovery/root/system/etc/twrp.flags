@@ -38,7 +38,7 @@
 /dtbo               emmc   /dev/block/by-name/dtbo                         flags=display="Dtbo";slotselect;backup=1
 /otp                emmc   /dev/block/by-name/otp
 /vbmeta             emmc   /dev/block/by-name/vbmeta                       flags=display="VBMeta";slotselect;flashimg=1
-/opcust             ext4   /dev/block/by-name/opcust                       flags=wipeingui
+/cust               ext4   /dev/block/by-name/cust                         flags=wipeingui
 
 #IMEI
 /nvram_image        emmc   /dev/block/by-name/nvram                        flags=backup;display="IMEI"
