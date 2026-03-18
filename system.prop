@@ -12,8 +12,6 @@ ro.llndk.api_level=202504
 ro.actionable_compatible_property.enabled=true
 ro.postinstall.fstab.prefix=/system
 security.perf_harden=1
-ro.adb.secure=0
-ro.debuggable=1
 net.bt.name=Android
 ro.force.debuggable=1
 ####################################
