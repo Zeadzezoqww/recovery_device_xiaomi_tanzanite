@@ -5,7 +5,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
 
     steps:
       - name: Free Disk Space
@@ -25,7 +25,7 @@ jobs:
           sudo apt-get install -y \
             git curl python3 python-is-python3 \
             make bc bison flex zip unzip \
-            libssl-dev libncurses5 lzop \
+            libssl-dev libncurses5-dev lzop \
             pngcrush schedtool rsync \
             openjdk-11-jdk ccache \
             android-sdk-libsparse-utils
