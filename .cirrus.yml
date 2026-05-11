@@ -1,0 +1,60 @@
+task:
+  name: Build OrangeFox
+  timeout_in: 120m
+
+  container:
+    image: ubuntu:20.04
+    cpu: 4
+    memory: 8G
+
+  env:
+    ALLOW_MISSING_DEPENDENCIES: "true"
+    FOX_BUILD_DEVICE: tanzanite
+    LC_ALL: C
+    FOX_AB_DEVICE: "1"
+    FOX_VIRTUAL_AB_DEVICE: "1"
+    OF_DEFAULT_KEYMASTER_VERSION: "4.1"
+    OF_FORCE_PREBUILT_KERNEL: "1"
+    DEBIAN_FRONTEND: noninteractive
+
+  install_script:
+    - apt-get update
+    - apt-get install -y git curl python3 python-is-python3
+      make bc bison flex zip unzip libssl-dev
+      libncurses5 lzop pngcrush schedtool
+      rsync openjdk-11-jdk ccache
+
+  repo_script:
+    - mkdir -p ~/.bin
+    - curl https://storage.googleapis.com/git-repo-downloads/repo > ~/.bin/repo
+    - chmod a+x ~/.bin/repo
+    - export PATH="$HOME/.bin:$PATH"
+    - git config --global user.name "cirrus-ci"
+    - git config --global user.email "ci@cirrus.com"
+
+  sync_script:
+    - export PATH="$HOME/.bin:$PATH"
+    - mkdir ~/OrangeFox_sync
+    - cd ~/OrangeFox_sync
+    - git clone https://gitlab.com/OrangeFox/sync.git
+    - cd sync
+    - ./orangefox_sync.sh --branch 12.1 --path ~/fox_12.1
+
+  clone_dt_script:
+    - cd ~/fox_12.1
+    - git clone https://github.com/Zeadzezoqww/recovery_device_xiaomi_tanzanite
+      device/xiaomi/tanzanite --depth=1
+
+  build_script:
+    - cd ~/fox_12.1
+    - export PATH="$HOME/.bin:$PATH"
+    - set +e && source build/envsetup.sh && set -e
+    - lunch twrp_tanzanite-eng
+    - mka adbd vendorbootimage -j4 2>&1 | tee build.log
+
+  always:
+    artifacts:
+      path: "fox_12.1/out/target/product/tanzanite/OrangeFox*.img"
+    on_failure:
+      log_artifacts:
+        path: "fox_12.1/build.log"
