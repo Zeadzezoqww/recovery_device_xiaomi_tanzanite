@@ -78,6 +78,36 @@ jobs:
 
       - name: Upload Artifacts
         if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: OrangeFox-tanzanite
+          path: |
+            ~/fox_12.1/out/target/product/tanzanite/OrangeFox*.img
+            ~/fox_12.1/out/target/product/tanzanite/OrangeFox*.zip
+            ~/fox_12.1/out/target/product/tanzanite/vendor_boot*.img
+
+      - name: Upload Build Log on Failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-log
+          path: ~/fox_12.1/build.log
+          export ALLOW_MISSING_DEPENDENCIES=true
+          export FOX_BUILD_DEVICE=tanzanite
+          export LC_ALL=C
+          export FOX_AB_DEVICE=1
+          export FOX_VIRTUAL_AB_DEVICE=1
+          export OF_DEFAULT_KEYMASTER_VERSION=4.1
+          export OF_FORCE_PREBUILT_KERNEL=1
+          export USE_CCACHE=1
+          export CCACHE_EXEC=/usr/bin/ccache
+          ccache -M 5G
+          source build/envsetup.sh
+          lunch twrp_tanzanite-eng
+          mka adbd vendorbootimage -j2
+
+      - name: Upload Artifacts
+        if: success()
         uses: actions/upload-artifact@v3
         with:
           name: OrangeFox-tanzanite
