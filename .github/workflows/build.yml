@@ -5,7 +5,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
 
     steps:
       - name: Free Disk Space
@@ -25,10 +25,12 @@ jobs:
           sudo apt-get install -y \
             git curl python3 python-is-python3 \
             make bc bison flex zip unzip \
-            libssl-dev libncurses5-dev lzop \
+            libssl-dev libncurses-dev libtinfo6 libncurses6 lzop \
             pngcrush schedtool rsync \
             openjdk-11-jdk ccache \
-            android-sdk-libsparse-utils
+            android-sdk-libsparse-utils || true
+          sudo ln -sf /usr/lib/x86_64-linux-gnu/libncurses.so.6 /usr/lib/x86_64-linux-gnu/libncurses.so.5 || true
+          sudo ln -sf /usr/lib/x86_64-linux-gnu/libtinfo.so.6 /usr/lib/x86_64-linux-gnu/libtinfo.so.5 || true
 
       - name: Setup repo tool
         run: |
