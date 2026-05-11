@@ -5,7 +5,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
 
     steps:
       - name: Free Disk Space
@@ -14,6 +14,9 @@ jobs:
           sudo rm -rf /usr/local/lib/android
           sudo rm -rf /opt/ghc
           sudo rm -rf /opt/hostedtoolcache
+          sudo rm -rf /usr/local/share/boost
+          sudo rm -rf /usr/lib/jvm
+          sudo rm -rf /usr/share/swift
           df -h
 
       - name: Install Dependencies
@@ -24,7 +27,8 @@ jobs:
             make bc bison flex zip unzip \
             libssl-dev libncurses5 lzop \
             pngcrush schedtool rsync \
-            openjdk-11-jdk ccache
+            openjdk-11-jdk ccache \
+            android-sdk-libsparse-utils
 
       - name: Setup repo tool
         run: |
@@ -49,6 +53,12 @@ jobs:
           git clone https://github.com/Zeadzezoqww/recovery_device_xiaomi_tanzanite \
             device/xiaomi/tanzanite --depth=1
 
+      - name: Clone Vendor
+        run: |
+          cd ~/fox_12.1
+          git clone https://github.com/Zeadzezoqww/proprietary_vendor_xiaomi_tanzanite \
+            vendor/xiaomi/tanzanite --depth=1
+
       - name: Build OrangeFox
         run: |
           cd ~/fox_12.1
@@ -59,10 +69,29 @@ jobs:
           export FOX_VIRTUAL_AB_DEVICE=1
           export OF_DEFAULT_KEYMASTER_VERSION=4.1
           export OF_FORCE_PREBUILT_KERNEL=1
+          export USE_CCACHE=1
+          export CCACHE_EXEC=/usr/bin/ccache
+          ccache -M 5G
           source build/envsetup.sh
           lunch twrp_tanzanite-eng
           mka adbd vendorbootimage -j2
 
+      - name: Upload Artifacts
+        if: success()
+        uses: actions/upload-artifact@v3
+        with:
+          name: OrangeFox-tanzanite
+          path: |
+            ~/fox_12.1/out/target/product/tanzanite/OrangeFox*.img
+            ~/fox_12.1/out/target/product/tanzanite/OrangeFox*.zip
+            ~/fox_12.1/out/target/product/tanzanite/vendor_boot*.img
+
+      - name: Upload Build Log on Failure
+        if: failure()
+        uses: actions/upload-artifact@v3
+        with:
+          name: build-log
+          path: ~/fox_12.1/build.log
       - name: Upload Artifacts
         uses: actions/upload-artifact@v3
         with:
